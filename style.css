@@ -163,6 +163,14 @@ textarea:focus, input:focus{
     height: 0;
 }
 
+.flagbox {
+	width: 800px;
+	margin-left: auto ;
+	margin-right: auto ;
+	height: 0;
+}
+
+
 .small {
     font-size: 10px; color: gray;
 }

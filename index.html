@@ -10,18 +10,24 @@
 	</head>
 	<body onLoad="focusinput()">
         <div class="container">
-
             <textarea tabindex="1" name="input" id="input" onKeyUp="hash()" onChange="hash()"></textarea>
-
         </div>
+        <div class="flag" id='SHA1_flag'></div>
 
-            <div class="flag" id='SHA1_flag'></div>
+        <div class="container">
+            <div class="outputcontrol">
+                Font-size: <input type="range" min="12" max="200" id="slider" onChange="changeFontSize()" />
+                Demo: <input type="button" onclick="typedemo()" value="60 Second Demo"/>
+            </div>
 
+            <h2>Tutorial:</h2>
+            <p>Requesting this page with ?input= adds your input. For example: </p>
+            <ul>
+                <li><a href="?input=Hello World">Hello World</a></li>
+                <li><a href="?input=there is no game">there is no game</a></li>
+                <li><a href="?input=If you're happy and you know it clap your hands 👏 👏">If you're happy and you know it...</a></li>
+            </ul>
 
-        <div class="outputcontrol">
-            <input type="range" min="12" max="200" id="slider" onChange="changeFontSize()" />
-            <input type="button" onclick="typedemo()" value="60 Second Demo"/>
-        </div>
 
 			<h2>Three Letter Acronym Example (beta)</h2>
 			<div id="blockall">
@@ -29,6 +35,15 @@
 				<span id="logotext">SHA</span>
 				<span id="textcode">+2017</span>
 			</div>
+
+            <h2>Canvas examples</h2>
+            <p>Download and install the <a href="https://www.fontsquirrel.com/fonts/roboto" target="_blank">Roboto Black font, here</a>. Then the images will render properly...</p>
+            <p>Please make them in more sizes... smarter... Github --&gt; <a href="https://github.com/sha2017/designgenerator">here</a></p>
+            <p><input type="button" onclick="download('flag_square');" value="Download below image (square)"></p>
+            <canvas id="flag_square" width="600" height="600"></canvas>
+
+            <p><input type="button" onclick="download('flag_rectangle');" value="Download below image (rectangle)"></p>
+            <canvas id="flag_rectangle" width="800" height="200"></canvas>
 
 
             <div class="codes">
@@ -40,7 +55,9 @@
             </div>
             <div class="footer" div id="footer">
         		CC0 Elger Jonker <br />
-        		<span class="small">Hash implementations used freely under MIT license.</span>
+        		<span class="small">Hash implementations used freely under MIT license.</span><br />
+                Github: <a href="https://github.com/sha2017/designgenerator">https://github.com/sha2017/designgenerator</a>
             </div>
+        </div>
 	</body>
 </html>
