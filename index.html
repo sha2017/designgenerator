@@ -1,0 +1,46 @@
+<!-- This page will self destruct in 5 seconds. -->
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>SHA DESIGN GENERATOR V1.0</title>
+		<meta charset="UTF-8">
+		<link type="text/css" rel="stylesheet" href="style.css" />
+		<script src="script.js"></script>
+		<script src="dependencies/sha1.js"></script>
+	</head>
+	<body onLoad="focusinput()">
+        <div class="container">
+
+            <textarea tabindex="1" name="input" id="input" onKeyUp="hash()" onChange="hash()"></textarea>
+
+        </div>
+
+            <div class="flag" id='SHA1_flag'></div>
+
+
+        <div class="outputcontrol">
+            <input type="range" min="12" max="200" id="slider" onChange="changeFontSize()" />
+            <input type="button" onclick="typedemo()" value="60 Second Demo"/>
+        </div>
+
+			<h2>Three Letter Acronym Example (beta)</h2>
+			<div id="blockall">
+				<div style='logo' id='logo'></div>
+				<span id="logotext">SHA</span>
+				<span id="textcode">+2017</span>
+			</div>
+
+
+            <div class="codes">
+                <h2>Hash codes</h2>
+                <div class='kvp'><label>Lowercase: </label><input id='SHA1_normal'></span></div>
+                <div class='kvp'><label>Uppercase: </label><input id='SHA1_uppercase'></span></div>
+                <div class='kvp'><label>Split: </label><input id='SHA1_split'></span></div>
+                <div class='kvp'><label>Freedomflag: </label><input id='SHA1_freedomflag'></span></div>
+            </div>
+            <div class="footer" div id="footer">
+        		CC0 Elger Jonker <br />
+        		<span class="small">Hash implementations used freely under MIT license.</span>
+            </div>
+	</body>
+</html>
