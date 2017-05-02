@@ -9,55 +9,205 @@
 		<script src="dependencies/sha1.js"></script>
 	</head>
 	<body onLoad="focusinput()">
-        <div class="container">
-            <textarea tabindex="1" name="input" id="input" onKeyUp="hash()" onChange="hash()"></textarea>
-        </div>
-        <div class="flag" id='SHA1_flag'></div>
 
-        <div class="container">
-            <div class="outputcontrol">
-                Font-size: <input type="range" min="12" max="200" id="slider" onChange="changeFontSize()" />
-                Demo: <input type="button" onclick="typedemo()" value="60 Second Demo"/>
-            </div>
 
-            <h2>Tutorial:</h2>
-            <p>Requesting this page with ?input= adds your input. For example: </p>
+        <div id="menu">
+            <h3>SHA2017 STYLEGUIDE</h3>
+
+            <a href="#installation">Read this before you begin...</a>
+
+            <h3>DESIGN GENERATOR</h3>
+
+            <textarea id="input" onKeyUp="hash()" onChange="hash()">SHA2017 STYLEGUIDE</textarea>
+            <br />
+            <label for="textslider">Code Size: </label> <input type="range" min="8" max="300" value="70" id="textslider" onInput="hash()" onChange="hash()" />
+            <br />
+            <label for="codeslider">Code Size: </label><input type="range" min="1" max="50" value="17" id="codeslider" onInput="hash()" onChange="hash()" />
+            <br />
+            <label for="showtext">Show Text: </label><input type="checkbox" value="1" checked="checked" id="showtext" onInput="hash()" onChange="hash()" />
+            <br />
+            <label for="showcode">Show Code: </label><input type="checkbox" value="1" checked="checked" id="showcode" onInput="hash()" onChange="hash()" />
+
+            <h3>GENERATED CONTENT</h3>
             <ul>
-                <li><a href="?input=Hello World">Hello World</a></li>
-                <li><a href="?input=there is no game">there is no game</a></li>
-                <li><a href="?input=If you're happy and you know it clap your hands 👏 👏">If you're happy and you know it...</a></li>
+                <li><a href="#codes">Codes</a></li>
+                <li><a href="#avatars">Avatars</a></li>
+                <li><a href="#wallpapers">Wallpapers</a></li>
             </ul>
 
 
-			<h2>Three Letter Acronym Example (beta)</h2>
+            <h3>DESIGN ELEMENTS</h3>
+            <ul>
+                <li><a href="#title">Title</a></li>
+                <li><a href="#sha1colors">SHA-1 Colors</a></li>
+                <li><a href="#flags">Flags</a></li>
+                <li><a href="#shrug">Shrug</a></li>
+                <li><a href="#fonts">Fonts</a></li>
+                <li><a href="#logo2">Logo</a></li>
+            </ul>
+
+            <h3>EXAMPLES</h3>
+            <ul>
+                <li>Try: <a href="?input=Hello World">Hello World</a></li>
+                <li>Try: <a href="?input=Clap 👏">Clap 👏</a></li>
+                <li><input type="button" onclick="typedemo()" value="60 Second Demo"/></li>
+            </ul>
+
+            <h3>EXPERIMENTS</h3>
+            <ul>
+                <li><a href="#sixcoloredwords">Six colored Words</a></li>
+            </ul>
+
+            <h3>CONTRIBUTE / IMPROVE</h3>
+            <ul>
+                <li><a href="https://github.com/sha2017/designgenerator" target="_blank">Github</a></li>
+            </ul>
+
+            <div class="footer" div id="footer">
+                <span class="small">CC0 Elger Jonker, SHA-1 implementation MIT by.</span><br />
+            </div>
+        </div>
+
+
+
+
+        <div class="container">
+
+            <canvas id="800x300" width="800" height="300" onclick="download('800x300');" alt="click to download" title="click to download"></canvas>
+            <a name="welcome"></a><h2>SHA2017 STYLEGUIDE</h2>
+            <p>Welcome to the SHA2017 styleguide and design generator.</p>
+
+            <p>Do not take the hints here too serious if you find your specific design is better. Nobody is going
+            to force you to use these guidelines. Do what you want with them, they are yours to play with.</p>
+
+            <a name="installation"></a><h2>BEFORE YOU BEGIN...</h2>
+            <p>Please install the required fonts on your system. You can get them here:</p>
+            <a href="https://www.fontsquirrel.com/fonts/roboto" target="_blank">Roboto Black</a> &amp;&amp;
+            <a href="https://www.fontsquirrel.com/fonts/permanent-marker" target="_blank">Permanent Marker</a>
+            <p>Afterwards, refresh this page and start typing in the top left input box.</p>
+
+
+            <h2>GENERATED CONTENT</h2>
+
+            <a name="codes"></a><h3>CODES</h3>
+            <div class="codes">
+                <div class='kvp'><label>Lowercase: </label><input id='SHA1_normal'></span></div>
+                <div class='kvp'><label>Uppercase: </label><input id='SHA1_uppercase'></span></div>
+                <div class='kvp'><label>Split: </label><input id='SHA1_split'></span></div>
+                <div class='kvp'><label>HTML Colors: </label><input id='SHA1_freedomflag'></span></div>
+                <div class='kvp'><label>HTML Gradient: </label><input id='SHA1_gradient'></span></div>
+            </div>
+
+            <a name="avatars"></a><h3>AVATARS</h3>
+
+            <h4>Twitter / Mastodon profile picture</h4>
+            <canvas id="600x600" onclick="download('flag_square');" width="600" height="600"></canvas>
+
+            <h4>Twitter / Facebook cover size</h4>
+            <canvas id="1230x410" onclick="download('1230x410');" width="1230" height="410"></canvas>
+
+
+            <a name="wallpapers"></a><h3>WALLPAPERS</h3>
+
+            <h4>800x600</h4>
+            <canvas id="800x600" width="800" height="600" onclick="download('800x600');" alt="click to download" title="click to download"></canvas>
+            <h4>1024x768</h4>
+            <canvas id="1024x768" width="1024" height="768" onclick="download('1024x768');"></canvas>
+            <h4>1920x1080</h4>
+            <canvas id="1920x1080" width="1920" height="1080" onclick="download('1920x1080');"></canvas>
+
+            <a name="classicwebelements"></a><h3>CLASSIC WEB ELEMENTS</h3>
+            <h4>full banner (468x60)</h4>
+            <canvas id="468x60" width="468" height="60" onclick="download('468x60');"></canvas>
+            <h4>leaderboard (728x90)</h4>
+            <canvas id="728x90" width="728" height="90" onclick="download('728x90');"></canvas>
+            <h4>button (88x31)</h4>
+            <canvas id="88x31" width="88" height="31" onclick="download('88x31');"></canvas>
+            <h4>divider (600x1)</h4>
+            <canvas id="600x1" width="600" height="1" onclick="download('600x1');"></canvas>
+
+            <a name="designelements"></a><h2>DESIGN ELEMENTS</h2>
+
+            <a name="title"></a><h3>TITLE: STILL HACKING ANYWAY</h3>
+            <p>The title of the event is born out of a belief that hacking and associated creativity and openness is more important than anything else. It is the mantra of the people visiting the event. </p>
+
+            <p>The title is written as ALL CAPS or Camel Caps</p>
+
+            <p>The title is abbreviated as SHA2017, without a space.</p>
+
+            <a name="sha1colors"></a><h3>SHA-1 COLORS</h3>
+            <p>The official / standard colors for SHA are: </p>
+            <pre>#c057d6 #086a9a #5b4ddb #2c7e52 #d39a49 #06b939 +2017</pre>
+            <p>This is the SHA-1 value of "SHA", 10036 spaces and "2017", the first hash that also ends in 2017.</p>
+            <p>Text on the colors is always white. This has the best readability, by far.</p>
+
+            <input style="color: white; background-color: #c057d6" value="#c057d6"/>
+            <input style="color: white; background-color: #086a9a" value="#086a9a"/>
+            <input style="color: white; background-color: #5b4ddb" value="#5b4ddb"/>
+            <input style="color: white; background-color: #2c7e52" value="#2c7e52"/>
+            <input style="color: white; background-color: #d39a49" value="#d39a49"/>
+            <input style="color: white; background-color: #06b939" value="#06b939"/>
+
+            <a name="flags"></a><h3>FLAGS</h3>
+            <p>The flags are six-striped elements with a text and code. They are prominent throughout the SHA2017 design.</p>
+            <p>The flags always have six colors, based on the SHA-1 hash what is printed on the flag. The text is centered in the flag, the baseline of the font is also centered so the text is really dead-center. The size of the text is touching all six colors when possible and only touches about 1/6th of the outer two colors. The code of the SHA-1 hash is prefixed with a "+" sign, example: +1337. The code is placed in the bottom left and should be a little smaller than the centered text. The code is regularly styled to be as big as the 6th color on the flag, but there are many cases where this does not work well.</p>
+            <p>Example:</p>
+            <img src="images/flag_example.png">
+
+
+            <a name="shrug"></a><h3>SHRUG</h3>
+            <p>The shrug symbolizes the philosophy: "i don't care, i'm hacking anyway".</p>
+            <p>The default shrug is ¯\_(ツ)_/¯, also used in the logo. By accident the ツ is Japanese for the Shi sound. The Sha sound is ツヤ. The default sound Dutch people make when they shrug things off is "Tsja", sounding similar to SHA.</p>
+            <p>There are many forms and examples of the shrug, and SHA encourages you to use as many different shrugs as possible.</p>
+            <h4>Shrug examples</h4>
+            <ul class="shrugexamples">
+                <li>¯\_(ツ)_/¯</li>
+                <li>¯\_(⌐■_■)_/¯</li>
+                <li>¯\_(:D)_/¯</li>
+                <li>¯\_ ͡° ͜ʖ ͡° _/¯</li>
+                <li>¯\_ ⩹ Д ⩺ _/¯</li>
+            </ul>
+            <p>Many examples can be created with the <a href="http://textsmili.es/" target="_blank">textsmili.es website</a>.</p>
+
+            <a name="fonts"></a><h3>FONTS</h3>
+            <h3>HEADERS: ROBOTO BLACK, ALL CAPS</h3>
+            <p><a href="https://www.fontsquirrel.com/fonts/roboto" target="_blank">Roboto Black</a></p>
+            <span style="font-family: robotoblack; font-size:4em;">THE QUICK BROWN FOX JUMPED OVER THE LAZY DOGE</span>
+
+            <h3>TEXT: ROBOTO REGULAR<h3>
+                <p><a href="https://www.fontsquirrel.com/fonts/roboto" target="_blank">Roboto Regular</a></p>
+                <p>Roboto is a sans-serif font that is readable and not too out of bounds.</p>
+            <span style="font-family: robotoregular; font-size:4em;">The quick fox jumped over the lazy doge.</span>
+
+            <h3>ACCENTS: PERMANENT MARKER REGULAR</h3>
+            <p><a href="https://www.fontsquirrel.com/fonts/permanent-marker" target="_blank">Permanent Marker</a></p>
+            <p>This is used to simulate "user input", for example write the word "hacking" on the poster.</p>
+            <span style="font-family: permanent_markerregular; font-size:4em;">the quick fox jumped over the lazy doge</span>
+
+
+            <a name="logo2"></a><h3>LOGO</h3>
+            <p>The full SHA logo consists out of the shrug, SHA2017 and "still hacking anyway". All are aligned to 100% width.
+            The ratio of the font is as is. There is a small distance between the elements.</p>
+            <p><a href="images/Sha_logo_large.png" target="_blank">Download high res png</a></p>
+            <a href="images/Sha_logo_large.png" target="_blank"><img src="images/Sha_logo_large.png" id="shalogo" width="800"></a>
+
+            <a name="experiments"></a><h2>EXPERIMENTS</h2>
+
+            <a name="sixcoloredwords"></a><h3>Three Letter Acronym Example (beta)</h3>
+
 			<div id="blockall">
 				<div style='logo' id='logo'></div>
 				<span id="logotext">SHA</span>
 				<span id="textcode">+2017</span>
 			</div>
 
-            <h2>Canvas examples</h2>
-            <p>Download and install the <a href="https://www.fontsquirrel.com/fonts/roboto" target="_blank">Roboto Black font, here</a>. Then the images will render properly...</p>
-            <p>Please make them in more sizes... smarter... Github --&gt; <a href="https://github.com/sha2017/designgenerator">here</a></p>
-            <p><input type="button" onclick="download('flag_square');" value="Download below image (square)"></p>
-            <canvas id="flag_square" width="600" height="600"></canvas>
-
-            <p><input type="button" onclick="download('flag_rectangle');" value="Download below image (rectangle)"></p>
-            <canvas id="flag_rectangle" width="800" height="200"></canvas>
-
-
-            <div class="codes">
-                <h2>Hash codes</h2>
-                <div class='kvp'><label>Lowercase: </label><input id='SHA1_normal'></span></div>
-                <div class='kvp'><label>Uppercase: </label><input id='SHA1_uppercase'></span></div>
-                <div class='kvp'><label>Split: </label><input id='SHA1_split'></span></div>
-                <div class='kvp'><label>Freedomflag: </label><input id='SHA1_freedomflag'></span></div>
+            <h3>HTML DESIGN ELEMENTS (DIVS)</h3>
+            <div class="container">
+                <textarea tabindex="1" name="input" id="htmlpanes" ></textarea>
             </div>
-            <div class="footer" div id="footer">
-        		CC0 Elger Jonker <br />
-        		<span class="small">Hash implementations used freely under MIT license.</span><br />
-                Github: <a href="https://github.com/sha2017/designgenerator">https://github.com/sha2017/designgenerator</a>
-            </div>
+            <div class="flag" id='SHA1_flag'></div>
+
         </div>
+
 	</body>
 </html>

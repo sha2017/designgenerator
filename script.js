@@ -31,36 +31,24 @@ function type(string,element){
 
 
 function focusinput(){
-
     $("input").focus();
     defaultText(decodeURIComponent(location.search.split('input=')[1]));
 }
 
 function changeFontSize(){
-	$("input").style.fontSize = $("slider").value+"px";
-	$("input").style.height = $("slider").value*4.7+"px";
+	$("htmlpanes").style.fontSize = $("slider").value+"px";
+	$("htmlpanes").style.height = $("slider").value*4.7+"px";
 }
-
-function toggleLeftArrow(){
-    toggleVisibility("arrow_left_up");
-    toggleVisibility("arrow_left_down");
-}
-
-function toggleRightArrow(){
-    toggleVisibility("arrow_right_up");
-    toggleVisibility("arrow_right_down");
-}
-
-function toggleVisibility(elementName){
-	(document.getElementById(elementName).style.display == 'none') ?document.getElementById(elementName).style.display='block' : document.getElementById(elementName).style.display='none'
-}
-
 
 function hash(){
     output = sha1($("input").value);
+    $("htmlpanes").value = $("input").value;
     $("SHA1_normal").value = output;
     $("SHA1_uppercase").value = output.toUpperCase();
     $("SHA1_split").value = splitper(output,2,":");
+    $("SHA1_gradient").value = shaflaggradient(output);
+
+
 
     // to make this site more colorful and happy, we convert the hex we get to HTML colors following the infamous freedom flag :)
     flag = "#" + splitper(output,6," #");
@@ -95,8 +83,16 @@ function hash(){
 	
 	$("logotext").innerHTML = $("input").value.substring(0,3);
 
-	toCanvas("flag_square", $("input").value, flagcolors);
-    toCanvas("flag_rectangle", $("input").value, flagcolors);
+    // all different sizes
+    outputs = ["800x600", "1024x768", "1920x1080", "1230x410", "600x600", "468x60","728x90", "88x31", "800x300", "600x1"]
+
+    for (i=0; i<outputs.length; i++)
+        toCanvas(outputs[i], $("input").value, flagcolors, $("textslider").value, $("codeslider").value, $("showtext").checked, $("showcode").checked)
+
+}
+
+function shaflaggradient(hex) {
+  return "- not yet implemented, view source here: https://wiki.sha2017.org/w/MediaWiki:Common.js";
 }
 
 // with 11061 spaces, you have SHA( *11061) 2017 that has a flag with +2017 
@@ -138,7 +134,7 @@ function download(id) {
 // todo: http://www.html5canvastutorials.com/tutorials/html5-canvas-wrap-text-tutorial/
 // todo: font size
 // todo: inform about installing the roboto black font...
-function toCanvas(id, text, flagcolors){
+function toCanvas(id, text, flagcolors, size, codeproportion, showtext, showcode){
     var c = document.getElementById(id);
     var ctx = c.getContext("2d");
     var width = c.width / 6; // or something like this...
@@ -157,17 +153,32 @@ function toCanvas(id, text, flagcolors){
     ctx.fillStyle = flagcolors[5];
     ctx.fillRect((width * 5), 0, width, c.height);
 
-    // your message
-    ctx.font = "60px 'Roboto-Black'";
+
     ctx.fillStyle = "#ffffff";
-    ctx.textAlign = "center";
-    ctx.fillText(text,c.width/2,c.height/2+30); // also include the half of the font size...
 
-    // and the rest of the hash
-    ctx.font = "60px 'Roboto-Black'";
-    ctx.textAlign = "right"
-    ctx.fillText(flagcolors[6],c.width - 10,c.height - 10); // align right...
+    // your message
+    if (showtext){
+        ctx.font = size+"px 'Roboto-Black'";
+        ctx.textAlign = "center";
+        ctx.textBaseline= "middle";
+        //ctx.alignment-baseline = "middle";
+        ctx.fillText(text,c.width/2,c.height/2); // also include the half of the font size...
+    }
 
+    // and the rest of the hash, minimal 10, 1/3rd of the input size. Ratio can be adjusted?
+    if (showcode){
+        size = size / (codeproportion / 10);
+        minsize = size > 6 ? size : 6;
+        ctx.font = minsize+"px 'Roboto-Black'";
+        ctx.textAlign = "right"
+        ctx.textBaseline= "alphabetic";
+
+        // on very small images, take into account that 10px might not be available.
+        bottom = c.height > 40 ? c.height - 10 : c.height - 1;
+        right = c.height > 40 ? c.width - 10 : c.width - 1;
+
+        ctx.fillText(flagcolors[6], right ,bottom); // align right...
+    }
 }
 
 function defaultText(text){
@@ -175,6 +186,9 @@ function defaultText(text){
     if (text != "undefined" && text != "" && text != null)
         $("input").value = text;
     else
+        $("input").value = "SHA2017 STYLEGUIDE";
+    hash();
+    return;
         $("input").value = "SHA                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     2017"
     hash();
 }
