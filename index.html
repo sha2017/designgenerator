@@ -20,13 +20,13 @@
 
             <textarea id="input" onKeyUp="hash()" onChange="hash()">SHA2017 STYLEGUIDE</textarea>
             <br />
-            <label for="textslider">Code Size: </label> <input type="range" min="8" max="300" value="70" id="textslider" onInput="hash()" onChange="hash()" />
+            <label for="textslider">Text Size: </label> <input type="range" min="8" max="300" value="70" id="textslider" onInput="hash()" onChange="hash()" />
             <br />
             <label for="codeslider">Code Size: </label><input type="range" min="1" max="50" value="17" id="codeslider" onInput="hash()" onChange="hash()" />
             <br />
-            <label for="showtext">Show Text: </label><input type="checkbox" value="1" checked="checked" id="showtext" onInput="hash()" onChange="hash()" />
+            <label for="showtext">Text: </label><input type="checkbox" value="1" checked="checked" id="showtext" onInput="hash()" onChange="hash()" />
             <br />
-            <label for="showcode">Show Code: </label><input type="checkbox" value="1" checked="checked" id="showcode" onInput="hash()" onChange="hash()" />
+            <label for="showcode">Code: </label><input type="checkbox" value="1" checked="checked" id="showcode" onInput="hash()" onChange="hash()" />
 
             <h3>GENERATED CONTENT</h3>
             <ul>
@@ -49,7 +49,7 @@
             <h3>EXAMPLES</h3>
             <ul>
                 <li>Try: <a href="?input=Hello World">Hello World</a></li>
-                <li>Try: <a href="?input=Clap 👏">Clap 👏</a></li>
+                <li>Try: <a href="?input=⛺️ Camping">⛺️ Camping</a></li>
                 <li><input type="button" onclick="typedemo()" value="60 Second Demo"/></li>
             </ul>
 
@@ -142,12 +142,12 @@
             <p>This is the SHA-1 value of "SHA", 10036 spaces and "2017", the first hash that also ends in 2017.</p>
             <p>Text on the colors is always white. This has the best readability, by far.</p>
 
-            <input style="color: white; background-color: #c057d6" value="#c057d6"/>
-            <input style="color: white; background-color: #086a9a" value="#086a9a"/>
-            <input style="color: white; background-color: #5b4ddb" value="#5b4ddb"/>
-            <input style="color: white; background-color: #2c7e52" value="#2c7e52"/>
-            <input style="color: white; background-color: #d39a49" value="#d39a49"/>
-            <input style="color: white; background-color: #06b939" value="#06b939"/>
+            <input style="color: white; background-color: #c057d6; width: 100px;" value="#c057d6"/>
+            <input style="color: white; background-color: #086a9a; width: 100px;" value="#086a9a"/>
+            <input style="color: white; background-color: #5b4ddb; width: 100px;" value="#5b4ddb"/>
+            <input style="color: white; background-color: #2c7e52; width: 100px;" value="#2c7e52"/>
+            <input style="color: white; background-color: #d39a49; width: 100px;" value="#d39a49"/>
+            <input style="color: white; background-color: #06b939; width: 100px;" value="#06b939"/>
 
             <a name="flags"></a><h3>FLAGS</h3>
             <p>The flags are six-striped elements with a text and code. They are prominent throughout the SHA2017 design.</p>
@@ -176,9 +176,9 @@
             <span style="font-family: robotoblack; font-size:4em;">THE QUICK BROWN FOX JUMPED OVER THE LAZY DOGE</span>
 
             <h3>TEXT: ROBOTO REGULAR<h3>
-                <p><a href="https://www.fontsquirrel.com/fonts/roboto" target="_blank">Roboto Regular</a></p>
-                <p>Roboto is a sans-serif font that is readable and not too out of bounds.</p>
-            <span style="font-family: robotoregular; font-size:4em;">The quick fox jumped over the lazy doge.</span>
+            <p><a href="https://www.fontsquirrel.com/fonts/roboto" target="_blank">Roboto Regular</a></p>
+            <p>Roboto is a sans-serif font that is readable and not too out of bounds.</p>
+            <span style="font-family: robotoregular; font-size:2em;">The quick fox jumped over the lazy doge.</span>
 
             <h3>ACCENTS: PERMANENT MARKER REGULAR</h3>
             <p><a href="https://www.fontsquirrel.com/fonts/permanent-marker" target="_blank">Permanent Marker</a></p>

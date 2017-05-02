@@ -44,6 +44,7 @@
     background-color: rgb(200,100,200);
     margin: 0px;
     border-right: 2px solid silver;
+    overflow:auto;
 }
 
 #menu #sourcetext{
@@ -68,6 +69,18 @@
 
 #menu ul{
 margin-top: 0px;
+}
+
+#menu {
+color: white;
+}
+
+#menu a {
+color: white;
+}
+
+#menu a:hover{
+color:white;
 }
 
 h2 {

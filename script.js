@@ -80,6 +80,8 @@ function hash(){
     $("SHA1_flag").innerHTML = happyColors;
 	$("logo").innerHTML = happyColors;
 	$("textcode").innerHTML = flagcolors[flagcolors.length-1];
+
+	$("menu").style.background = flagcolors[0];
 	
 	$("logotext").innerHTML = $("input").value.substring(0,3);
 
